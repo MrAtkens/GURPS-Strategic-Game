@@ -1,0 +1,14 @@
+diff a/DefaultTemplate.Domain/Models/Enums/Enums.cs b/DefaultTemplate.Domain/Models/Enums/Enums.cs	(rejected hunks)
+@@ -135,10 +135,10 @@
+     public static readonly EEntityType AKPAct = new() { Id = "akpAct", Name = new Localizable("AKP Act", "Акт ПСР", "Акт ПСР") };
+     public static readonly EEntityType AVRAct = new() { Id = "avrAct", Name = new Localizable("Act of AVR", "Акт АВР", "Акт АВР") };
+     public static readonly EEntityType NotDigitizedDocument = new() { Id = "notDigitizedDocument", Name = new Localizable("Not a digitized document", "Не оцифрованный документ", "Не оцифрованный документ") };
+-    public static readonly EEntityType PackageDocuments = new() { Id = "packageDocuments", Name = new Localizable("Package of documents", "Пакет документов", "Пакет документов") };
++    public static readonly EEntityType PackageDocument = new() { Id = "PackageDocument", Name = new Localizable("Package of documents", "Пакет документов", "Пакет документов") };
+ 
+     public static EEntityType[] All = { ApplicationForCve, SectionDocumentPackage, ContractSurveys, ContractDevelopmentFeasibility,
+-        ContractDevelopmentPSD, AKPAct, AVRAct, NotDigitizedDocument, PackageDocuments};
++        ContractDevelopmentPSD, AKPAct, AVRAct, NotDigitizedDocument, PackageDocument};
+ }
+ 
+ public class EDesignCalendarPlanTaskStatus : EnumModel
