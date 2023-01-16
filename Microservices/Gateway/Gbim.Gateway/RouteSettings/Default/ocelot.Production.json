@@ -1,0 +1,270 @@
+{
+  "Routes": [
+    // Registration service route
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-infrastructure-services.internal",
+        "Port": 44416
+      }
+      ],
+      "UpstreamPathTemplate": "/api/registration/{everything}",
+      "UpstreamHttpMethod": ["Get", "Post", "Put", "Delete"],
+      "Priority": 1000,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      },
+      "DelegatingHandlers": [
+        "SeedAuthHeaders"
+      ]
+    },
+    // Registration enums service route
+    {
+      "DownstreamPathTemplate": "/api/enums/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-infrastructure-services.internal",
+        "Port": 44416
+      }
+      ],
+      "UpstreamPathTemplate": "/api/registration/enums/{everything}",
+      "UpstreamHttpMethod": ["Get"],
+      "Priority": 1001,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/enums/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-infrastructure-services.internal",
+        "Port": 44416
+      }
+      ],
+      "UpstreamPathTemplate": "/api/registration/enums/",
+      "UpstreamHttpMethod": ["Get"],
+      "Priority": 1001,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    },
+    // Account service route
+    {
+      "DownstreamPathTemplate": "/api/account/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-infrastructure-services.internal",
+        "Port": 44416
+      }
+      ],
+      "UpstreamPathTemplate": "/api/account/{everything}",
+      "UpstreamHttpMethod": ["Get","Put"],
+      "Priority": 1002,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    },
+    // User agreement service route
+    {
+      "DownstreamPathTemplate": "/api/userAgreement/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-infrastructure-services.internal",
+        "Port": 44416
+      }
+      ],
+      "UpstreamPathTemplate": "/api/userAgreement/{everything}",
+      "UpstreamHttpMethod": ["Post"],
+      "Priority": 1523,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      },
+      "DelegatingHandlers": [
+        "SeedAuthHeaders"
+      ]
+    },
+    // Reference service route
+    {
+      "DownstreamPathTemplate": "/api/v1/references/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-demo-business-services.internal",
+        "Port": 8580
+      }
+      ],
+      "UpstreamPathTemplate": "/api/references/{everything}",
+      "UpstreamHttpMethod": ["Get", "Post", "Put", "Delete"],
+      "Priority": 2001,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    },
+    // Address Reference service routes
+    {
+      "DownstreamPathTemplate": "/api/address/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-infrastructure-services.internal",
+        "Port": 44322
+      }
+      ],
+      "UpstreamPathTemplate": "/api/address/{everything}",
+      "UpstreamHttpMethod": ["Get"],
+      "Priority": 3001,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/address/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-infrastructure-services.internal",
+        "Port": 44322
+      }
+      ],
+      "UpstreamPathTemplate": "/api/address/",
+      "UpstreamHttpMethod": ["Get"],
+      "Priority": 3003,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    },
+    // Enum service route
+    {
+      "DownstreamPathTemplate": "/api/v1/enums/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-demo-business-services.internal",
+        "Port": 8580
+      }
+      ],
+      "UpstreamPathTemplate": "/api/enums/{everything}",
+      "UpstreamHttpMethod": ["Get", "Post", "Put", "Delete"],
+      "Priority": 2002,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    },
+    // Files service route
+    {
+      "DownstreamPathTemplate": "/api/v1/files/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-demo-business-services.internal",
+        "Port": 8580
+      }
+      ],
+      "UpstreamPathTemplate": "/api/files/{everything}",
+      "UpstreamHttpMethod": ["Get", "Post", "Put", "Delete"],
+      "Priority": 2003,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/files/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-demo-business-services.internal",
+        "Port": 8580
+      }
+      ],
+      "UpstreamPathTemplate": "/api/files/",
+      "UpstreamHttpMethod": ["Get", "Post", "Put", "Delete"],
+      "Priority": 2003,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    },
+    // Companies API route
+    {
+      "DownstreamPathTemplate": "/api/v1/companies/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-demo-business-services.internal",
+        "Port": 8580
+      }
+      ],
+      "UpstreamPathTemplate": "/api/bpm/companies/{everything}",
+      "UpstreamHttpMethod": ["Get"],
+      "Priority": 605,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/companies/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-demo-business-services.internal",
+        "Port": 8580
+      }
+      ],
+      "UpstreamPathTemplate": "/api/bpm/companies/{everything}",
+      "UpstreamHttpMethod": ["Post", "Put", "Delete"],
+      "Priority": 601,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      },
+      "DelegatingHandlers": [
+        "SeedAuthHeaders"
+      ]
+    },
+    // BPM API route
+    {
+      "DownstreamPathTemplate": "/api/v1/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-demo-business-services.internal",
+        "Port": 8580
+      }
+      ],
+      "UpstreamPathTemplate": "/api/bpm/{everything}",
+      "UpstreamHttpMethod": ["Get", "Post", "Put", "Delete"],
+      "Priority": 500,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      },
+      "DelegatingHandlers": [
+        "SeedAuthHeaders"
+      ]
+    },
+    // NCANode service route
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [{
+        "Host": "gbim-infrastructure-services.internal",
+        "Port": 14579
+      }
+      ],
+      "UpstreamPathTemplate": "/api/nca/",
+      "UpstreamHttpMethod": ["Get", "Post"],
+      "Priority": 900,
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:44435"
+  }
+}x
