@@ -6,10 +6,10 @@ namespace DefaultTemplate.DataAccess;
 
 public class UnitOfWork : IUnitOfWork
 {
-    private readonly GbimContext _context;
+    private readonly DefaultContext _context;
     private readonly IServiceProvider _serviceProvider;
 
-    public UnitOfWork(GbimContext context, IServiceProvider serviceProvider)
+    public UnitOfWork(DefaultContext context, IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
         _context = context;

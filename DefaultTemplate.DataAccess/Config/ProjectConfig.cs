@@ -2,8 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using DefaultTemplate.DataAccess.Config.Common;
-using DefaultTemplate.DataAccess.Entities;
-using DefaultTemplate.DataAccess.Entities.Project;
 
 namespace DefaultTemplate.DataAccess.Config
 {
@@ -28,40 +26,4 @@ namespace DefaultTemplate.DataAccess.Config
         }
     }
 
-    public class DevelopmentStageEntityConfig : BaseEntityConfig<DevelopmentStageEntity>
-    {
-        protected override void Config(EntityTypeBuilder<DevelopmentStageEntity> builder)
-        {
-            builder.ToTable("DevelopmentStages");
-            builder.HasOne(x => x.StageName)
-                .WithMany().HasForeignKey(x => x.StageNameId).Metadata.DeleteBehavior = DeleteBehavior.Restrict;
-        }
-    }
-    
-    public class DevelopmentStepEntityConfig : BaseEntityConfig<DevelopmentStepEntity>
-    {
-        protected override void Config(EntityTypeBuilder<DevelopmentStepEntity> builder)
-        {
-            builder.ToTable("DevelopmentSteps");
-            builder.HasOne(x => x.StageName)
-                .WithMany().HasForeignKey(x => x.StageNameId).Metadata.DeleteBehavior = DeleteBehavior.Restrict;
-            builder.HasOne(x => x.Stage)
-                .WithMany().HasForeignKey(x => x.StageId).Metadata.DeleteBehavior = DeleteBehavior.Restrict;
-        }
-    }
-    
-    public class WorkStepEntityConfig : BaseEntityConfig<WorkStepEntity>
-    {
-        protected override void Config(EntityTypeBuilder<WorkStepEntity> builder)
-        {
-            builder.ToTable("WorkSteps");
-            builder.HasOne(x => x.StageName)
-                .WithMany().HasForeignKey(x => x.StageNameId).Metadata.DeleteBehavior = DeleteBehavior.Restrict;
-            
-            builder.HasOne(x => x.Stage)
-                .WithMany().HasForeignKey(x => x.StageId).IsRequired(false).Metadata.DeleteBehavior = DeleteBehavior.Restrict;
-            builder.HasOne(x => x.Step)
-                .WithMany().HasForeignKey(x => x.StepId).IsRequired(false).Metadata.DeleteBehavior = DeleteBehavior.Restrict;
-        }
-    }
 }

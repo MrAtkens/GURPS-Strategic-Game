@@ -1,0 +1,11 @@
+﻿using DefaultTemplate.DataAccess.Entities.Base;
+
+namespace DefaultTemplate.DataAccess.Entities.Users;
+
+public class BussinessEntity : BaseEntity
+{
+    public UserEntity User { get; set; }
+    public Guid UserId { get; set; }
+    public Guid ParentId { get; set; }
+    public DateTime RegistrationDate { get; set; }
+}
