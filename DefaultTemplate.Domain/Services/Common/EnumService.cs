@@ -1,4 +1,5 @@
 ﻿using DefaultTemplate.Domain.Models;
+using DefaultTemplate.Domain.Models.Common;
 
 namespace DefaultTemplate.Domain.Services.Common;
 

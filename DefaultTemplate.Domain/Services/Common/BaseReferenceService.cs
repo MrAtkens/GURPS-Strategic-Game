@@ -27,7 +27,7 @@ public class BaseReferenceService<TDomain, TSearchQuery> : BaseService<TDomain, 
         }
         var validateResult = Validator?.Validate(model);
         if (validateResult?.IsValid == false)
-            throw new ExecutionResultException(GbimResult.IncorrectData, validateResult.Errors[0].ErrorMessage, validateResult.Errors[0].PropertyName);
+            throw new ExecutionResultException(DefaultResult.IncorrectData, validateResult.Errors[0].ErrorMessage, validateResult.Errors[0].PropertyName);
         await Validate(model);
         await _repository.SaveAsync(model, forceId);
         await OnSaved(model);

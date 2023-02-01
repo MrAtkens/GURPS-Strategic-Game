@@ -5,6 +5,8 @@ namespace DefaultTemplate.DataAccess.Entities.Users;
 
 public class AddressDetailEntity : BaseEntity
 {
+    public Guid UserId { get; set; }
+    public UserEntity User { get; set; }
     public string Value { get; set; }
     public AddressDetailType Type { get; set; }
     public double Lat { get; set; }

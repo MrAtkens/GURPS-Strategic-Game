@@ -32,7 +32,7 @@ public class BaseService<TDomain, TSearchQuery> : ICrudService<TDomain, TSearchQ
     {
         var validateResult = Validator?.Validate(model);
         if (validateResult?.IsValid == false) 
-            throw new ExecutionResultException(GbimResult.IncorrectData, validateResult.Errors[0].ErrorMessage, validateResult.Errors[0].PropertyName);
+            throw new ExecutionResultException(DefaultResult.IncorrectData, validateResult.Errors[0].ErrorMessage, validateResult.Errors[0].PropertyName);
 
         await Validate(model);
         await _repository.SaveAsync(model, forceId);
@@ -72,7 +72,7 @@ public class BaseService<TDomain, TSearchQuery> : ICrudService<TDomain, TSearchQ
         var repository = _unitOfWork.GetRepository<TDom, TSearch>();
         var search = new TSearch() { Ids = new Guid[] { id } };
         if (await repository.Any(search) == false)
-            throw new ExecutionResultException(GbimResult.IncorrectData, $"Данный id не может использоваться потом что он не был найден {id}");
+            throw new ExecutionResultException(DefaultResult.IncorrectData, $"Данный id не может использоваться потом что он не был найден {id}");
     }
 
     protected virtual Task OnSaved(TDomain model) => Task.CompletedTask;

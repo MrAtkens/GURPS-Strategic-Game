@@ -8,7 +8,7 @@ public class UserEntity : NamedEntity
     public string Phone { get; set; }
     public string Password { get; set; }
     public Guid RoleId { get; set; }
-    public RoleEntity Role { get; set; }
-    public IReadOnlyList<ContactDetailEntity> ContactDetails { get; set; }
-    public IReadOnlyList<AddressDetailEntity> AddressDetails { get; set; }
+    public RoleEntity? Role { get; set; }
+    public IReadOnlyList<ContactDetailEntity>? ContactDetails { get; set; }
+    public IReadOnlyList<AddressDetailEntity>? AddressDetails { get; set; }
 }

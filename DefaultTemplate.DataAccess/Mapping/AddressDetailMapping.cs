@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DefaultTemplate.DataAccess.Entities.OrgStructure;
+using DefaultTemplate.DataAccess.Entities.Users;
 using DefaultTemplate.Domain.Models;
 using DefaultTemplate.Domain.Models.AddressDetails;
 
@@ -10,8 +10,7 @@ public class AddressDetailsMapping : Profile
     {
         CreateMap<AddressDetailEntity, AddressDetail>()
             .ForMember(dest => dest.CreatedBy, opt => opt.ExplicitExpansion())
-            .ForMember(dest => dest.ModifiedBy, opt => opt.ExplicitExpansion())
-            .ForMember(dest => dest.Participant, opt => opt.ExplicitExpansion());
+            .ForMember(dest => dest.ModifiedBy, opt => opt.ExplicitExpansion());
         CreateMap<AddressDetailEntity, BaseModel>();
     }
 }

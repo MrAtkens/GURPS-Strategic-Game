@@ -21,7 +21,7 @@ public class NatPersonLookup
 
 public class NamedModel : BaseModel
 {
-    public Localizable? Name { get; set; }
+    public string? Name { get; set; }
 }
 
 public interface IDeletable

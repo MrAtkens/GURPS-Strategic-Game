@@ -1,8 +1,7 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using DefaultTemplate.DataAccess.Entities.Base;
 using DefaultTemplate.Domain.Models.Common;
-using DefaultTemplate.Domain.Services.ContextService;
+using DefaultTemplate.Domain.Services.System;
 
 namespace DefaultTemplate.DataAccess.Repositories.Base;
 public class ReferenceRepository<TDomain, TEntity, TSearchQuery> : BaseRepository<TDomain, TEntity, TSearchQuery>
@@ -10,7 +9,7 @@ public class ReferenceRepository<TDomain, TEntity, TSearchQuery> : BaseRepositor
     where TEntity : BaseReference, new()
     where TSearchQuery : SearchQuery
 {
-    public ReferenceRepository(GbimContext context, IMapper mapper, IContextService contextService) : base(context, mapper, contextService)
+    public ReferenceRepository(DefaultContext context, IMapper mapper, IContextService contextService) : base(context, mapper, contextService)
     {
     }
 

@@ -1,46 +1,50 @@
-﻿using System.Linq.Expressions;
+﻿using System.Linq;
+using System.Linq.Expressions;
 using AutoMapper;
-using DefaultTemplate.DataAccess.Entities.UserProfile;
+using DefaultTemplate.DataAccess.Entities.Users;
 using DefaultTemplate.DataAccess.Repositories.Base;
 using DefaultTemplate.Domain.Models.Roles;
-using DefaultTemplate.Domain.Services.ContextService;
 using DefaultTemplate.Domain.Services.Roles;
+using DefaultTemplate.Domain.Services.System;
 
 namespace DefaultTemplate.DataAccess.Repositories;
 
-
 public class RoleRepository : BaseRepository<Role, RoleEntity, RoleQuery>, IRoleRepository
 {
-    public RoleRepository(GbimContext context, IMapper mapper, IContextService contextService) : base(context, mapper, contextService)
+    public RoleRepository(DefaultContext context, IMapper mapper, IContextService contextService) : base(context,
+        mapper, contextService)
     {
     }
 
     protected override void Update(RoleEntity entity, Role model)
     {
-        entity.Name = model.Name;
-        entity.isDefault = model.isDefault;
-        entity.ActivityTypeEnumId = model.ActivityTypeEnumId;
+        entity.Name = model.Name!;
         entity.Code = model.Code;
-        if(model.PermisionsIds != null)
+        var existsPermissions = _context.RolesPermissions.Where(x => x.RoleId == model.Id).ToArray();
+        var forAdd = model.PermissionsIds.Where(id => !existsPermissions.Any(x => x.PermissionId == id)).Select(id => new RolePermissionEntity
         {
-            List<PermissionEntity> permissions = new List<PermissionEntity>();
-            model.PermisionsIds.ForEach(item =>
-            {
-                var permission = this._context.Permisions.FirstOrDefault(x => x.Id == item);
-                permissions.Add(permission);
-            });
-            entity.Permissions = permissions;
-        }
+            PermissionId = id,
+            RoleId = model.Id
+        }).DistinctBy(x => x.PermissionId).ToArray();
+
+        _context.RolesPermissions.AddRange(forAdd);
+
+        var forRemove = existsPermissions.Where(x => !model.PermissionsIds.Contains(x.PermissionId)).ToArray();
+        _context.RolesPermissions.RemoveRange(forRemove);
+    }
+
+    protected override IQueryable<RoleEntity> Search(IQueryable<RoleEntity> dbQuery, RoleQuery query)
+    {
+        if (query.Ids?.Any() == true)
+            dbQuery = dbQuery.Where(x => query.Ids.Contains(x.Id));
+        if (query.ExcludeIds?.Any() == true)
+            dbQuery = dbQuery.Where(x => !query.ExcludeIds.Contains(x.Id));
+        
+        return dbQuery;
     }
 
     protected override Expression<Func<Role, object>>[] IncludeAggregated() => new Expression<Func<Role, object>>[]
     {
-            x => x.PermisionsIds,
-            x => x.Permissions,
-            x => x.WorkplacesIds,
-            x => x.Workplaces,
-            x => x.UsersIds,
-            x => x.Users,
+        x => x.Permissions,
     };
 }
-

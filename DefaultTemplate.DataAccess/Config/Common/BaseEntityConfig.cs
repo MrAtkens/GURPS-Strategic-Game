@@ -4,11 +4,11 @@ using DefaultTemplate.DataAccess.Entities.Base;
 
 namespace DefaultTemplate.DataAccess.Config.Common;
 
-public abstract class BaseEntityConfig<TEnum> : IEntityTypeConfiguration<TEnum> where TEnum : BaseEntity
+public abstract class BaseEntityConfig<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : BaseEntity
 {
-    protected abstract void Config(EntityTypeBuilder<TEnum> builder);
+    protected abstract void Config(EntityTypeBuilder<TEntity> builder);
 
-    public void Configure(EntityTypeBuilder<TEnum> builder)
+    public void Configure(EntityTypeBuilder<TEntity> builder)
     {
         builder.HasKey(x => x.Id);
         builder.HasOne(x => x.CreatedBy).WithMany().HasForeignKey(x => x.CreateById).Metadata.DeleteBehavior = DeleteBehavior.Restrict;

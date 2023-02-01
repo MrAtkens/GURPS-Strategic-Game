@@ -1,8 +1,8 @@
-﻿
+﻿using DefaultTemplate.Domain.Models.Users;
 
 namespace DefaultTemplate.Domain.Services.System;
 public interface IContextService
 {
-    CurrentUser CurrentUser { get; set; }
+    User CurrentUser { get; set; }
     bool CheckPermision(string permisionId);
 }

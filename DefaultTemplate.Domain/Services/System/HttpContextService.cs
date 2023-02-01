@@ -1,13 +1,13 @@
-﻿namespace DefaultTemplate.Domain.Services.System;
+﻿using DefaultTemplate.Domain.Models.Users;
+
+namespace DefaultTemplate.Domain.Services.System;
 
 public class HttpContextService : IContextService
 {
-    public CurrentUser CurrentUser { get; set; } = null!;
+    public User CurrentUser { get; set; } = null!;
 
     public bool CheckPermision(string permisionId)
     {
-        if (CurrentUser.Id == Domain.NatPersons.SysUser.Id)
-            return true;
-        return CurrentUser.Permissions.Any(permision => permision.Id == permisionId);
+        return CurrentUser.Role.Permissions.Any(permision => permision.Id == permisionId);
     }
 }

@@ -1,7 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using DefaultTemplate.DataAccess;
-using DefaultTemplate.DataAccess.Repositories.Enums;
+using DefaultTemplate.DataAccess.Mapping;
+using DefaultTemplate.DataAccess.Repositories;
+using DefaultTemplate.Domain.Models.AddressDetails;
+using DefaultTemplate.Domain.Models.ContactDetails;
+using DefaultTemplate.Domain.Models.Permissions;
+using DefaultTemplate.Domain.Services.AddressDetails;
 using DefaultTemplate.Domain.Services.Common;
+using DefaultTemplate.Domain.Services.ContactDetails;
 using DefaultTemplate.Domain.Services.System;
 
 namespace DefaultTemplate.DI
@@ -10,37 +16,30 @@ namespace DefaultTemplate.DI
     {
         public static IServiceCollection AddDefaultServices(this IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(BankProfile).Assembly);
+            services.AddAutoMapper(typeof(AddressDetailsMapping).Assembly);
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IContextService, HttpContextService>();
-
-            #region References
-            services.AddScoped<IDesignCalendarPlanTaskNameRepository, DesignCalendarPlanTaskNameRepository>();
-            services.AddScoped<ICrudRepository<DesignCalendarPlanTaskName, DesignCalendarPlanTaskNameQuery>, DesignCalendarPlanTaskNameRepository>();
-            services.AddScoped<IDesignCalendarPlanTaskNameService, DesignCalendarPlanTaskNameService>();
-
-            #endregion
-
+            
             #region Enums
 
-            services.AddScoped<IEnumRepository<EProjectStatus>, ProjectStatusRepository>();
-            services.AddScoped<IEnumService<EProjectStatus>, EnumService<EProjectStatus>>();
+            services.AddScoped<IEnumRepository<EPermission>, PermissionRepository>();
+            services.AddScoped<IEnumService<EPermission>, EnumService<EPermission>>();
             #endregion
 
             #region Entities
 
-            services.AddScoped<IConstructionObjectCategoryRepository, ConstructionObjectCategoryRepository>();
-            services.AddScoped<ICrudRepository<ConstructionObjectCategory, ConstructionObjectCategoryQuery>, ConstructionObjectCategoryRepository>();
-            services.AddScoped<IConstructionObjectCategoryService, ConstructionObjectCategoryService>();
+            services.AddScoped<IAddressDetailRepository, AddressDetailRepository>();
+            services.AddScoped<ICrudRepository<AddressDetail, AddressDetailQuery>, AddressDetailRepository>();
+            services.AddScoped<IAddressDetailService, AddressDetailService>();
+
+            
+            services.AddScoped<IContactDetailRepository, ContactDetailRepository>();
+            services.AddScoped<ICrudRepository<ContactDetail, ContactDetailQuery>, ContactDetailRepository>();
+            services.AddScoped<IContactDetailService, ContactDetailService>();
 
             #endregion
-
-
-            services.AddScoped<INotificationTypeRepository, NotificationTypeRepository>();
-            services.AddScoped<INotificationTypeService, NotificationTypeService>();
-
 
             return services;
         }

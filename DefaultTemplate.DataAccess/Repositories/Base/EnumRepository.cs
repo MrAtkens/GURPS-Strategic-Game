@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using DefaultTemplate.DataAccess.Entities.Base;
 using DefaultTemplate.Domain.Models;
+using DefaultTemplate.Domain.Models.Common;
 using DefaultTemplate.Domain.Services.Common;
 
 namespace DefaultTemplate.DataAccess.Repositories.Base;
@@ -10,14 +11,14 @@ namespace DefaultTemplate.DataAccess.Repositories.Base;
 public class EnumRepository<TEnum, TEnumEntity> : IEnumRepository<TEnum> where TEnum : EnumModel
     where TEnumEntity : EnumEntity, new()
 {
-    private readonly IMapper _mapper;
+    protected readonly IMapper _mapper;
+
+    protected readonly DbSet<TEnumEntity> _dbSet;
     
-    private readonly DbSet<TEnumEntity> _dbSet;
-    
-    public EnumRepository(GbimContext gbimContext, IMapper mapper)
+    public EnumRepository(DefaultContext context, IMapper mapper)
     {
         _mapper = mapper;
-        _dbSet = gbimContext.Set<TEnumEntity>();
+        _dbSet = context.Set<TEnumEntity>();
     }
 
     public async Task<IReadOnlyList<TEnum>> GetAllAsync()

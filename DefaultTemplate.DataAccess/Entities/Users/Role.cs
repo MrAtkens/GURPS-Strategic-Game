@@ -4,5 +4,6 @@ namespace DefaultTemplate.DataAccess.Entities.Users;
 
 public class RoleEntity : NamedEntity
 {
-    private List<PermissionEntity> Permissions { get; set; }
+    public string Code { get; set; }
+    public virtual ICollection<RolePermissionEntity> Permissions { get; set; }
 }

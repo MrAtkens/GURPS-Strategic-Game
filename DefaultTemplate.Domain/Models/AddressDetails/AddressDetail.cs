@@ -6,4 +6,6 @@ public class AddressDetail: BaseModel
 {
     public string Value { get; set; }
     public AddressDetailType Type { get; set; }
+    public double Lat { get; set; }
+    public double Lng { get; set; }
 }

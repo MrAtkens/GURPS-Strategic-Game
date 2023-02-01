@@ -8,7 +8,7 @@ using DefaultTemplate.DataAccess.Entities.Base;
 using DefaultTemplate.Domain.Models;
 using DefaultTemplate.Domain.Models.Common;
 using DefaultTemplate.Domain.Services.Common;
-using DefaultTemplate.Domain.Services.ContextService;
+using DefaultTemplate.Domain.Services.System;
 
 namespace DefaultTemplate.DataAccess.Repositories.Base;
 
@@ -17,12 +17,12 @@ public class BaseRepository<TDomain, TEntity, TSearchQuery> : ICrudRepository<TD
     where TEntity : BaseEntity, new()
     where TSearchQuery : SearchQuery 
 {
-    protected readonly GbimContext _context;
+    protected readonly DefaultContext _context;
     protected readonly IMapper _mapper;
     protected readonly IContextService _contextService;
     protected readonly DbSet<TEntity> _dbSet;
 
-    public BaseRepository(GbimContext context, IMapper mapper, IContextService contextService)
+    public BaseRepository(DefaultContext context, IMapper mapper, IContextService contextService)
     {
         _context = context;
         _mapper = mapper;
@@ -100,7 +100,7 @@ public class BaseRepository<TDomain, TEntity, TSearchQuery> : ICrudRepository<TD
     {
         var entity = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
         if (entity is null)
-            throw new ExecutionResultException(GbimResult.IncorrectData);
+            throw new ExecutionResultException(DefaultResult.IncorrectData);
 
         entity.IsDeleted = true;
         entity.DeletedById = _contextService.CurrentUser.Id;
