@@ -1,21 +1,25 @@
-using System.Security.Claims;
+using System.Reflection;
+using System.Text;
+using System.Text.Json.Serialization;
+using DefaultTemplate.Common.Exceptions;
+using DefaultTemplate.DataAccess;
+using DefaultTemplate.Domain.Services.System;
+using DefaultTemplate.Domain.Services.Users;
+using MediatR;
+using MGZNew.Domain.Options;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Serilog;
-using System.Text.Json.Serialization;
-using DefaultTemplate.DataAccess;
-using DefaultTemplate.Domain.Services.System;
-using DefaultTemplate.Common.Exceptions;
-using DefaultTemplate.Common.Enums;
-using DefaultTemplate.DI;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Host.UseSerilog((ctx, lc) => lc.ReadFrom.Configuration(builder.Configuration, "Serilog"));
+builder.Host.UseSerilog((ctx, lc) =>
+    lc.ReadFrom.Configuration(builder.Configuration, "Serilog").Enrich.WithProperty("app-name", "main-api"));
 
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddControllers().AddJsonOptions(opt =>
 {
     opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
@@ -23,7 +27,7 @@ builder.Services.AddControllers().AddJsonOptions(opt =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Strategic Api", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MGZ Api", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = @"JWT Authorization header using the Bearer scheme.
@@ -52,25 +56,41 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-var connection = builder.Configuration.GetConnectionString("Default");
-builder.Services.AddDbContext<DefaultContext>(optionsBuilder => { optionsBuilder.UseNpgsql(connection); });
-builder.Services.AddDefaultServices();
-
-builder.Services.AddAuthentication(options =>
+builder.Services.AddCors(options =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-    .AddJwtBearer("Bearer", options =>
-    {
-        options.Authority = builder.Configuration["Oidc:Authority"];
-        options.RequireHttpsMetadata = false;
-        options.TokenValidationParameters = new TokenValidationParameters
+    options.AddPolicy(name: "Default",
+        policy  =>
         {
-            ValidateAudience = false
-        };
-    });
+            policy.AllowAnyHeader();
+            policy.AllowAnyMethod();
+            policy.AllowCredentials();
+            policy.WithOrigins("http://localhost:4200");
+        });
+});
+builder.Services.Configure<MailOptions>(builder.Configuration.GetSection("Smtp"));
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
 
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<DefaultContext>(optionsBuilder => { optionsBuilder.UseNpgsql(connection); });
+
+builder.Services.AddHealthChecks();
+builder.Services.AddCommonServices(builder.Configuration);
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
+    options.TokenValidationParameters = new TokenValidationParameters {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("Api", policy =>
@@ -85,30 +105,43 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<DefaultContext>();
     context.Database.Migrate();
-
+    
     new DataInitializer(scope.ServiceProvider).Init().GetAwaiter().GetResult();
 }
 
 
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-app.UseSwagger();
-app.UseSwaggerUI();
+app.UseCors("Default");
+app.MapHealthChecks("/health");
+
+app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-/*app.Use(async (context, next) =>
+app.Use(async (context, next) =>
 {
     var contextService = context.RequestServices.GetRequiredService<IContextService>() as HttpContextService;
-    var natPersonService = context.RequestServices.GetRequiredService<INatPersonService>();
+    var userService = context.RequestServices.GetRequiredService<IUserService>();
+    var claim = context.User.Claims;
+    var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+    if (token != null)
+    {
+        var userId = contextService.ValidateToken(token);
+        if (userId != null)
+        {
+            contextService.CurrentUser = await userService.GetAsync(userId.Value);
+        }
+    }
 
-    var claim = context.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier);
-    var claimActivity = context.User.Claims.FirstOrDefault(x => x.Type == "activities");
-    var claimUnitType = context.User.Claims.FirstOrDefault(x => x.Type == "unitType");
-
-    await next();
-});*/
+    await next(context);
+});
 
 app.MapControllers()
     .RequireAuthorization("Api");
@@ -124,7 +157,7 @@ app.UseExceptionHandler(applicationBuilder =>
 
             var status = exception.Code switch
             {
-                DefaultResult.IncorrectData => 400,
+                ResultStatus.IncorrectData => 400,
                 _ => 500
             };
 
@@ -139,16 +172,13 @@ app.UseExceptionHandler(applicationBuilder =>
         }
         else
         {
-            await context.Response.WriteAsJsonAsync(new
-            {
-                Code = 500,
-                Message = handlerFeature?.Error.InnerException?.Message ?? handlerFeature?.Error.Message
-            });
+            throw handlerFeature?.Error;
         }
     });
 });
 
 app.Run();
+
 
 public class SwaggerFileOperationFilter : IOperationFilter
 {
