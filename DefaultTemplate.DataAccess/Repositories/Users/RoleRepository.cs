@@ -1,13 +1,12 @@
-﻿using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using AutoMapper;
 using DefaultTemplate.DataAccess.Entities.Users;
 using DefaultTemplate.DataAccess.Repositories.Base;
 using DefaultTemplate.Domain.Models.Roles;
+using DefaultTemplate.Domain.Services.ContextService;
 using DefaultTemplate.Domain.Services.Roles;
-using DefaultTemplate.Domain.Services.System;
 
-namespace DefaultTemplate.DataAccess.Repositories;
+namespace DefaultTemplate.DataAccess.Repositories.Users;
 
 public class RoleRepository : BaseRepository<Role, RoleEntity, RoleQuery>, IRoleRepository
 {

@@ -1,6 +1,4 @@
-﻿using DefaultTemplate.Domain.Common;
-
-namespace DefaultTemplate.Domain.Models;
+﻿namespace DefaultTemplate.Domain.Models.Common;
 
 public class BaseModel : IAuditable
 {

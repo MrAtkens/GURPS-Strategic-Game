@@ -1,4 +1,5 @@
-﻿using DefaultTemplate.Domain.Models;
+﻿using DefaultTemplate.Common;
+using DefaultTemplate.Domain.Models;
 using DefaultTemplate.Domain.Models.Common;
 using DefaultTemplate.Domain.Services.Common;
 using Microsoft.AspNetCore.Mvc;

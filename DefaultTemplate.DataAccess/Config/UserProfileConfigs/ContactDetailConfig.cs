@@ -1,17 +1,14 @@
-﻿using DefaultTemplate.DataAccess.Config.Common;
-using DefaultTemplate.DataAccess.Entities.Users;
+﻿using DefaultTemplate.DataAccess.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DefaultTemplate.DataAccess.Config.UserProfileConfigs;
-
-public class AddressDetailConfig: BaseEntityConfig<AddressDetailEntity>
+public class ContactDetailConfig : IEntityTypeConfiguration<ContactDetailEntity>
 {
-    protected override void Config(EntityTypeBuilder<AddressDetailEntity> builder)
+    public void Configure(EntityTypeBuilder<ContactDetailEntity> builder)
     {
-        builder.ToTable("Address");
         builder.HasKey(x => x.Id);
-        builder.ToTable("AddressDetails");
+        builder.ToTable("ContactDetails");
         builder.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId)
             .Metadata.DeleteBehavior = DeleteBehavior.Restrict;
     }

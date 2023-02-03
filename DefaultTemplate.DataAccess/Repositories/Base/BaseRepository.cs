@@ -8,7 +8,7 @@ using DefaultTemplate.DataAccess.Entities.Base;
 using DefaultTemplate.Domain.Models;
 using DefaultTemplate.Domain.Models.Common;
 using DefaultTemplate.Domain.Services.Common;
-using DefaultTemplate.Domain.Services.System;
+using DefaultTemplate.Domain.Services.ContextService;
 
 namespace DefaultTemplate.DataAccess.Repositories.Base;
 

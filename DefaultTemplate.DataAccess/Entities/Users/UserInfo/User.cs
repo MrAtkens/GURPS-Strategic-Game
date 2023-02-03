@@ -5,7 +5,6 @@ namespace DefaultTemplate.DataAccess.Entities.Users;
 public class UserEntity : NamedEntity
 {
     public string LoginMail { get; set; }
-    public string Phone { get; set; }
     public string Password { get; set; }
     public Guid RoleId { get; set; }
     public RoleEntity? Role { get; set; }

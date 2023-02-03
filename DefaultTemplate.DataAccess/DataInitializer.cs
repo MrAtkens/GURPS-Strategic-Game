@@ -1,5 +1,6 @@
 ﻿using DefaultTemplate.DataAccess.Entities.Users;
 using DefaultTemplate.DataAccess.Repositories;
+using DefaultTemplate.DataAccess.Repositories.Users;
 using DefaultTemplate.Domain;
 using Microsoft.Extensions.DependencyInjection;
 using DefaultTemplate.Domain.Models;

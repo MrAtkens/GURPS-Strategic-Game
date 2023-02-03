@@ -1,11 +1,10 @@
-using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
+using DefaultTemplate.Common.Enums;
 using DefaultTemplate.Common.Exceptions;
 using DefaultTemplate.DataAccess;
-using DefaultTemplate.Domain.Services.System;
+using DefaultTemplate.Domain.Services.ContextService;
 using DefaultTemplate.Domain.Services.Users;
-using MediatR;
 using MGZNew.Domain.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics;
@@ -19,7 +18,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((ctx, lc) =>
     lc.ReadFrom.Configuration(builder.Configuration, "Serilog").Enrich.WithProperty("app-name", "main-api"));
 
-builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddControllers().AddJsonOptions(opt =>
 {
     opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
@@ -74,7 +72,6 @@ var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DefaultContext>(optionsBuilder => { optionsBuilder.UseNpgsql(connection); });
 
 builder.Services.AddHealthChecks();
-builder.Services.AddCommonServices(builder.Configuration);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -157,7 +154,7 @@ app.UseExceptionHandler(applicationBuilder =>
 
             var status = exception.Code switch
             {
-                ResultStatus.IncorrectData => 400,
+                DefaultResult.IncorrectData => 400,
                 _ => 500
             };
 
@@ -172,7 +169,7 @@ app.UseExceptionHandler(applicationBuilder =>
         }
         else
         {
-            throw handlerFeature?.Error;
+            throw handlerFeature?.Error!;
         }
     });
 });

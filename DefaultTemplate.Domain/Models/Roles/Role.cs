@@ -1,4 +1,5 @@
-﻿using DefaultTemplate.Domain.Models.Permissions;
+﻿using DefaultTemplate.Domain.Models.Common;
+using DefaultTemplate.Domain.Models.Permissions;
 
 namespace DefaultTemplate.Domain.Models.Roles;
 

@@ -1,6 +1,8 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using DefaultTemplate.Domain.Models.Bussineses;
 using DefaultTemplate.Domain.Models.Users;
+using DefaultTemplate.Domain.Models.Waiters;
 using MGZNew.Domain.Options;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -11,6 +13,8 @@ public class HttpContextService : IContextService
 {
     private readonly IOptions<JwtOptions> _options;
     public User? CurrentUser { get; set; } = null;
+    public Waiter? CurrentWaiter { get; set; }
+    public Business? CurrentBussiness { get; set; }
     public long RegionId { get; set; }
 
     public HttpContextService(IOptions<JwtOptions> options)
@@ -23,7 +27,7 @@ public class HttpContextService : IContextService
         return CurrentUser.Role.Permissions.Any(permission => permission.Id == permissionId);
     }
 
-    public long? ValidateToken(string token)
+    public Guid? ValidateToken(string token)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_options.Value.Key);
@@ -39,7 +43,7 @@ public class HttpContextService : IContextService
             }, out SecurityToken validatedToken);
 
             var jwtToken = (JwtSecurityToken)validatedToken;
-            var userId = long.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+            var userId = Guid.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
             return userId;
         }

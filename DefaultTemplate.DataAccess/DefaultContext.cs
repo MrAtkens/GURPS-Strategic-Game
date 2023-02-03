@@ -31,6 +31,10 @@ public class DefaultContext : DbContext
         modelBuilder.ApplyConfiguration(new RoleConfig());
         modelBuilder.ApplyConfiguration(new PermissionConfig());
         modelBuilder.ApplyConfiguration(new AddressDetailConfig());
-
+        modelBuilder.ApplyConfiguration(new ContactDetailConfig());
+        modelBuilder.ApplyConfiguration(new UserConfig());
+        modelBuilder.ApplyConfiguration(new BussinessConfig());
+        modelBuilder.ApplyConfiguration(new WaiterConfig());
+        modelBuilder.ApplyConfiguration(new EmployeeConfig());
     }
 }

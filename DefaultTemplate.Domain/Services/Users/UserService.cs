@@ -1,8 +1,10 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using DefaultTemplate.Common;
 using DefaultTemplate.Common.Enums;
 using DefaultTemplate.Common.Exceptions;
+using DefaultTemplate.Domain.DTOs;
 using DefaultTemplate.Domain.Models.Users;
 using DefaultTemplate.Domain.Services.Common;
 using FluentValidation;
@@ -44,7 +46,7 @@ public class UserService: BaseService<User, UserQuery>, IUserService
         {
             Issuer = _options.Value.Issuer,
             Audience = _options.Value.Audience,
-            Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
+            Subject = new ClaimsIdentity(new[] { new Claim("mail", user.LoginMail) }),
             Expires = DateTime.UtcNow.AddDays(3),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };

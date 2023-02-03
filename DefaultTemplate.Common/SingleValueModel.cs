@@ -1,4 +1,4 @@
-﻿namespace DefaultTemplate.Api.Common;
+﻿namespace DefaultTemplate.Common;
 
 public class SingleValueModel<TValue>
 {
@@ -9,5 +9,5 @@ public class SingleValueModel<TValue>
         Value = val;
     }
 
-    public TValue? Value { get; set; }
+    private TValue? Value { get; set; }
 }

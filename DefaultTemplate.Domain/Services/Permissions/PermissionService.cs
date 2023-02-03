@@ -1,6 +1,6 @@
 ﻿using DefaultTemplate.Domain.Models.Permissions;
 using DefaultTemplate.Domain.Services.Common;
-using DefaultTemplate.Domain.Services.System;
+using DefaultTemplate.Domain.Services.ContextService;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace DefaultTemplate.Domain.Services.Permissions;
@@ -14,7 +14,6 @@ public class PermissionService : EnumService<EPermission>, IPermissionService
     public PermissionService(
         IPermissionRepository repository,
         IContextService contextService,
-        IServiceProvider serviceProvider,
         IMemoryCache memoryCache) : base(repository)
     {
         _repository = repository;

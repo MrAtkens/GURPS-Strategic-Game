@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using DefaultTemplate.DataAccess.Entities.Base;
 using DefaultTemplate.Domain.Models.Common;
-using DefaultTemplate.Domain.Services.System;
+using DefaultTemplate.Domain.Services.ContextService;
 
 namespace DefaultTemplate.DataAccess.Repositories.Base;
 public class ReferenceRepository<TDomain, TEntity, TSearchQuery> : BaseRepository<TDomain, TEntity, TSearchQuery>

@@ -1,4 +1,6 @@
-﻿using DefaultTemplate.Domain.Models.Users;
+﻿using DefaultTemplate.Common;
+using DefaultTemplate.Domain.DTOs;
+using DefaultTemplate.Domain.Models.Users;
 using DefaultTemplate.Domain.Services.Common;
 
 namespace DefaultTemplate.Domain.Services.Users;

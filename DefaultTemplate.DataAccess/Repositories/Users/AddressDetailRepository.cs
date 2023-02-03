@@ -3,9 +3,9 @@ using DefaultTemplate.DataAccess.Entities.Users;
 using DefaultTemplate.DataAccess.Repositories.Base;
 using DefaultTemplate.Domain.Models.AddressDetails;
 using DefaultTemplate.Domain.Services.AddressDetails;
-using DefaultTemplate.Domain.Services.System;
+using DefaultTemplate.Domain.Services.ContextService;
 
-namespace DefaultTemplate.DataAccess.Repositories;
+namespace DefaultTemplate.DataAccess.Repositories.Users;
 
 public class AddressDetailRepository : BaseRepository<AddressDetail, AddressDetailEntity, AddressDetailQuery>, IAddressDetailRepository
 {

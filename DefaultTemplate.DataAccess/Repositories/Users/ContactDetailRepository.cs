@@ -3,9 +3,9 @@ using DefaultTemplate.DataAccess.Entities.Users;
 using DefaultTemplate.DataAccess.Repositories.Base;
 using DefaultTemplate.Domain.Models.ContactDetails;
 using DefaultTemplate.Domain.Services.ContactDetails;
-using DefaultTemplate.Domain.Services.System;
+using DefaultTemplate.Domain.Services.ContextService;
 
-namespace DefaultTemplate.DataAccess.Repositories;
+namespace DefaultTemplate.DataAccess.Repositories.Users;
 
 public class ContactDetailRepository : BaseRepository<ContactDetail, ContactDetailEntity, ContactDetailQuery>, IContactDetailRepository
 {
