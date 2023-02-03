@@ -33,4 +33,8 @@
     <ProjectReference Include="..\Waiters.Domain\Waiters.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="..\.dockerignore" />
+  </ItemGroup>
+
 </Project>

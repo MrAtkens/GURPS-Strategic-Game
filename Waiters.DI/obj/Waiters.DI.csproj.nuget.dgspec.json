@@ -1,0 +1,335 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DI\\Waiters.DI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Common\\Waiters.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Common\\Waiters.Common.csproj",
+        "projectName": "Waiters.Common",
+        "projectPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Common\\Waiters.Common.csproj",
+        "packagesPath": "C:\\Users\\rkali\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\rkali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DataAccess\\Waiters.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DataAccess\\Waiters.DataAccess.csproj",
+        "projectName": "Waiters.DataAccess",
+        "projectPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DataAccess\\Waiters.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\rkali\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\rkali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Domain\\Waiters.Domain.csproj": {
+                "projectPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Domain\\Waiters.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "DataAnnotationsExtensions": {
+              "target": "Package",
+              "version": "[5.0.1.27, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DI\\Waiters.DI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DI\\Waiters.DI.csproj",
+        "projectName": "Waiters.DI",
+        "projectPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DI\\Waiters.DI.csproj",
+        "packagesPath": "C:\\Users\\rkali\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\rkali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DataAccess\\Waiters.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.DataAccess\\Waiters.DataAccess.csproj"
+              },
+              "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Domain\\Waiters.Domain.csproj": {
+                "projectPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Domain\\Waiters.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Domain\\Waiters.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Domain\\Waiters.Domain.csproj",
+        "projectName": "Waiters.Domain",
+        "projectPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Domain\\Waiters.Domain.csproj",
+        "packagesPath": "C:\\Users\\rkali\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\rkali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Common\\Waiters.Common.csproj": {
+                "projectPath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Common\\Waiters.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Apache.DotCMIS": {
+              "target": "Package",
+              "version": "[0.6.0, )"
+            },
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "Camunda.Api.Client": {
+              "target": "Package",
+              "version": "[2.6.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.2.0, )"
+            },
+            "GraphQL.Client": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "GraphQL.Client.Serializer.Newtonsoft": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "MimeTypes": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.10.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "rQz3RxICB6B2TqNOF8QJ/73+h4GXW6tFH65Mez9YTk7a4evyW9cHi7Nzqs0vXXjtNoersHPizAyQeLKLNnDX7g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rkali\\source\\repos\\DefaultTemplate-Strategic\\Waiters.Common\\Waiters.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rkali\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\rkali\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
