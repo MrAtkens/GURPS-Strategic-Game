@@ -32,25 +32,25 @@ namespace DefaultTemplate.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("CreateById")
+                    b.Property<Guid?>("CreateById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid?>("DeletedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset?>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid>("ModifiedById")
+                    b.Property<Guid?>("ModifiedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid?>("ParentId")
@@ -82,25 +82,25 @@ namespace DefaultTemplate.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("CreateById")
+                    b.Property<Guid?>("CreateById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid?>("DeletedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset?>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid>("ModifiedById")
+                    b.Property<Guid?>("ModifiedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid>("UserId")
@@ -126,16 +126,16 @@ namespace DefaultTemplate.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("CreateById")
+                    b.Property<Guid?>("CreateById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid?>("DeletedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset?>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsDeleted")
@@ -147,10 +147,10 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.Property<double>("Lng")
                         .HasColumnType("double precision");
 
-                    b.Property<Guid>("ModifiedById")
+                    b.Property<Guid?>("ModifiedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("Type")
@@ -187,25 +187,25 @@ namespace DefaultTemplate.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("CreateById")
+                    b.Property<Guid?>("CreateById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid?>("DeletedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset?>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid>("ModifiedById")
+                    b.Property<Guid?>("ModifiedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("Type")
@@ -261,25 +261,25 @@ namespace DefaultTemplate.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("CreateById")
+                    b.Property<Guid?>("CreateById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid?>("DeletedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset?>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid>("ModifiedById")
+                    b.Property<Guid?>("ModifiedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
@@ -319,16 +319,16 @@ namespace DefaultTemplate.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("CreateById")
+                    b.Property<Guid?>("CreateById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid?>("DeletedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset?>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsDeleted")
@@ -338,10 +338,10 @@ namespace DefaultTemplate.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("ModifiedById")
+                    b.Property<Guid?>("ModifiedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Password")
@@ -379,25 +379,25 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.Property<DateTime>("BirthDay")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid>("CreateById")
+                    b.Property<Guid?>("CreateById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid?>("DeletedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset?>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid>("ModifiedById")
+                    b.Property<Guid?>("ModifiedById")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTimeOffset>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<double?>("Rating")
@@ -417,7 +417,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Waiters", (string)null);
+                    b.ToTable("Waiters.Api", (string)null);
                 });
 
             modelBuilder.Entity("DefaultTemplate.DataAccess.Entities.Users.BussinessEntity", b =>
@@ -425,8 +425,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreateById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "DeletedBy")
                         .WithMany()
@@ -436,8 +435,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "ModifiedBy")
                         .WithMany()
                         .HasForeignKey("ModifiedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "User")
                         .WithOne()
@@ -459,8 +457,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreateById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "DeletedBy")
                         .WithMany()
@@ -470,8 +467,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "ModifiedBy")
                         .WithMany()
                         .HasForeignKey("ModifiedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "User")
                         .WithOne()
@@ -493,8 +489,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreateById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "DeletedBy")
                         .WithMany()
@@ -504,8 +499,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "ModifiedBy")
                         .WithMany()
                         .HasForeignKey("ModifiedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", null)
                         .WithMany("AddressDetails")
@@ -531,8 +525,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreateById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "DeletedBy")
                         .WithMany()
@@ -542,8 +535,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "ModifiedBy")
                         .WithMany()
                         .HasForeignKey("ModifiedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", null)
                         .WithMany("ContactDetails")
@@ -604,8 +596,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreateById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "DeletedBy")
                         .WithMany()
@@ -615,8 +606,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "ModifiedBy")
                         .WithMany()
                         .HasForeignKey("ModifiedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.OwnsOne("DefaultTemplate.Domain.Common.Localizable", "Name", b1 =>
                         {
@@ -678,8 +668,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreateById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "DeletedBy")
                         .WithMany()
@@ -689,8 +678,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "ModifiedBy")
                         .WithMany()
                         .HasForeignKey("ModifiedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.RoleEntity", "Role")
                         .WithMany()
@@ -736,8 +724,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreateById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "DeletedBy")
                         .WithMany()
@@ -747,8 +734,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "ModifiedBy")
                         .WithMany()
                         .HasForeignKey("ModifiedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("DefaultTemplate.DataAccess.Entities.Users.UserInfo.UserEntity", "User")
                         .WithOne()

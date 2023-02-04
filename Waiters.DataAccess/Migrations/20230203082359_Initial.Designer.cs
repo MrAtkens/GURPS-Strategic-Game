@@ -419,7 +419,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Waiters", (string)null);
+                    b.ToTable("Waiters.Api", (string)null);
                 });
 
             modelBuilder.Entity("DefaultTemplate.DataAccess.Entities.Users.BussinessEntity", b =>

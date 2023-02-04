@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using DefaultTemplate.DataAccess.Entities.Users;
 using DefaultTemplate.DataAccess.Entities.Users.UserInfo;
 using DefaultTemplate.DataAccess.Repositories.Base;
 using DefaultTemplate.Domain.Models.Permissions;
 using DefaultTemplate.Domain.Services.Permissions;
 using Microsoft.EntityFrameworkCore;
 
-namespace DefaultTemplate.DataAccess.Repositories;
+namespace DefaultTemplate.DataAccess.Repositories.Users;
 
 public class PermissionRepository: EnumRepository<EPermission, PermissionEntity>, IPermissionRepository
 {

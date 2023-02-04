@@ -80,7 +80,7 @@ public class BaseRepository<TDomain, TEntity, TSearchQuery> : ICrudRepository<TD
         if (entity == null)
         {
             entity = CreateNew(model);
-            entity.CreateById = _contextService.CurrentUser.Id;
+            entity.CreateById = _contextService.CurrentUser == null ? null : _contextService.CurrentUser.Id;
 
             entity.Id = forceId ? model.Id : Guid.NewGuid();
             model.Id = entity.Id;
@@ -89,7 +89,7 @@ public class BaseRepository<TDomain, TEntity, TSearchQuery> : ICrudRepository<TD
         }
         
         Update(entity, model);
-        entity.ModifiedById = _contextService.CurrentUser.Id;
+        entity.ModifiedById = _contextService.CurrentUser == null ? null : _contextService.CurrentUser.Id;
 
         if (isAdd) _dbSet.Add(entity);
 
@@ -104,7 +104,7 @@ public class BaseRepository<TDomain, TEntity, TSearchQuery> : ICrudRepository<TD
 
         entity.IsDeleted = true;
         entity.DeletedById = _contextService.CurrentUser.Id;
-        entity.DeletedDate = DateTimeOffset.Now;
+        entity.DeletedDate = DateTime.Now;
         
         await _context.SaveChangesAsync();
     }
@@ -124,8 +124,8 @@ public class BaseRepository<TDomain, TEntity, TSearchQuery> : ICrudRepository<TD
     protected virtual TEntity CreateNew(TDomain model) => new()
     {
         IsDeleted = false,
-        CreatedDate = DateTimeOffset.Now,
-        ModifiedDate = DateTimeOffset.Now
+        CreatedDate = DateTime.Now,
+        ModifiedDate = DateTime.Now
     };
 
     protected virtual IQueryable<TEntity> GetDbQuery(TSearchQuery query)

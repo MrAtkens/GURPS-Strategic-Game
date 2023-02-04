@@ -1,0 +1,17 @@
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\bin\Debug\net6.0\Waiters.Domain.deps.json
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\bin\Debug\net6.0\Waiters.Domain.dll
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\bin\Debug\net6.0\Waiters.Domain.pdb
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\bin\Debug\net6.0\Waiters.Common.dll
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\bin\Debug\net6.0\Waiters.Common.pdb
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\NuGet\8350E13769FCB6EFAB9014669942D9D6A00DB592\MimeTypes\2.4.0\MimeTypes.cs
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\Waiters.Domain.csproj.AssemblyReference.cache
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\Waiters.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\RefitStubs.g.cs
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\Waiters.Domain.AssemblyInfoInputs.cache
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\Waiters.Domain.AssemblyInfo.cs
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\Waiters.Domain.csproj.CoreCompileInputs.cache
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\Waiters.Domain.csproj.CopyComplete
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\Waiters.Domain.dll
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\refint\Waiters.Domain.dll
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\Waiters.Domain.pdb
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Domain\obj\Debug\net6.0\ref\Waiters.Domain.dll

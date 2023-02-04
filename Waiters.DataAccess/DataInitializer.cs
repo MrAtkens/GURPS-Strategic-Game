@@ -1,13 +1,14 @@
-﻿using DefaultTemplate.DataAccess.Entities.Users;
-using DefaultTemplate.DataAccess.Repositories;
-using DefaultTemplate.DataAccess.Repositories.Users;
-using DefaultTemplate.Domain;
+﻿using DefaultTemplate.Domain;
 using Microsoft.Extensions.DependencyInjection;
-using DefaultTemplate.Domain.Models;
 using DefaultTemplate.Domain.Models.Common;
 using DefaultTemplate.Domain.Models.Permissions;
 using DefaultTemplate.Domain.Models.Roles;
+using DefaultTemplate.Domain.Models.Users;
 using DefaultTemplate.Domain.Services.Common;
+using DefaultTemplate.Domain.Services.ContextService;
+using DefaultTemplate.Domain.Services.Permissions;
+using DefaultTemplate.Domain.Services.Roles;
+using DefaultTemplate.Domain.Services.Users;
 
 namespace DefaultTemplate.DataAccess;
 
@@ -23,8 +24,11 @@ public class DataInitializer
     public async Task Init()
     {
         var unitOfWork = _services.GetRequiredService<IUnitOfWork>();
-        await SaveEnum<PermissionRepository, EPermission>(Permissions.List);
-        await Save<RoleRepository, Role, RoleQuery>(Roles.List);
+        var contextService = _services.GetRequiredService<IContextService>() as HttpContextService;
+        await SaveEnum<IPermissionRepository, EPermission>(Permissions.List);
+        await unitOfWork.SaveChangesAsync();
+
+        await Save<IRoleRepository, Role, RoleQuery>(Roles.List);
         await unitOfWork.SaveChangesAsync();
     }
 

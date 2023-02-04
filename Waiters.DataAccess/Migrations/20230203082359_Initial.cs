@@ -228,7 +228,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Waiters",
+                name: "Waiters.Api",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -427,22 +427,22 @@ namespace DefaultTemplate.DataAccess.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Waiters_CreateById",
-                table: "Waiters",
+                table: "Waiters.Api",
                 column: "CreateById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Waiters_DeletedById",
-                table: "Waiters",
+                table: "Waiters.Api",
                 column: "DeletedById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Waiters_ModifiedById",
-                table: "Waiters",
+                table: "Waiters.Api",
                 column: "ModifiedById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Waiters_UserId",
-                table: "Waiters",
+                table: "Waiters.Api",
                 column: "UserId",
                 unique: true);
 
@@ -649,7 +649,7 @@ namespace DefaultTemplate.DataAccess.Migrations
                 name: "Roles_Permmissions");
 
             migrationBuilder.DropTable(
-                name: "Waiters");
+                name: "Waiters.Api");
 
             migrationBuilder.DropTable(
                 name: "Permissions",

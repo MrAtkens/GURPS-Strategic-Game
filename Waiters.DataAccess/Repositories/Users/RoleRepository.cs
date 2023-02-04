@@ -20,17 +20,21 @@ public class RoleRepository : BaseRepository<Role, RoleEntity, RoleQuery>, IRole
     {
         entity.Name = model.Name!;
         entity.Code = model.Code;
-        var existsPermissions = _context.RolesPermissions.Where(x => x.RoleId == model.Id).ToArray();
-        var forAdd = model.PermissionsIds.Where(id => !existsPermissions.Any(x => x.PermissionId == id)).Select(id => new RolePermissionEntity
+        if (model.PermissionsIds != null)
         {
-            PermissionId = id,
-            RoleId = model.Id
-        }).DistinctBy(x => x.PermissionId).ToArray();
+            var existsPermissions = _context.RolesPermissions.Where(x => x.RoleId == model.Id).ToArray();
+            var forAdd = model.PermissionsIds.Where(id => !existsPermissions.Any(x => x.PermissionId == id)).Select(
+                id => new RolePermissionEntity
+                {
+                    PermissionId = id,
+                    RoleId = model.Id
+                }).DistinctBy(x => x.PermissionId).ToArray();
 
-        _context.RolesPermissions.AddRange(forAdd);
+            _context.RolesPermissions.AddRange(forAdd);
 
-        var forRemove = existsPermissions.Where(x => !model.PermissionsIds.Contains(x.PermissionId)).ToArray();
-        _context.RolesPermissions.RemoveRange(forRemove);
+            var forRemove = existsPermissions.Where(x => !model.PermissionsIds.Contains(x.PermissionId)).ToArray();
+            _context.RolesPermissions.RemoveRange(forRemove);
+        }
     }
 
     protected override IQueryable<RoleEntity> Search(IQueryable<RoleEntity> dbQuery, RoleQuery query)

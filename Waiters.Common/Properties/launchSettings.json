@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Waiters.Common": {
+      "commandName": "Project"
+    },
+    "Профиль 1": {
+      "commandName": "Project"
+    }
+  }
+}

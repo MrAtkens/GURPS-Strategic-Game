@@ -5,18 +5,18 @@ namespace DefaultTemplate.Domain.Models.Common;
 public class BaseModel : IAuditable
 {
     public Guid Id { get; set; }
-    public Guid CreateById { get; set; }
+    public Guid? CreateById { get; set; }
     public NatPersonLookup? CreatedBy { get; set; }
-    public DateTimeOffset CreatedDate { get; set; }
-    public Guid ModifiedById { get; set; }
+    public DateTimeOffset? CreatedDate { get; set; }
+    public Guid? ModifiedById { get; set; }
     public NatPersonLookup? ModifiedBy { get; set; }
-    public DateTimeOffset ModifiedDate { get; set; }
+    public DateTimeOffset? ModifiedDate { get; set; }
 }
 
 public class NatPersonLookup
 {
     public string FullName { get; set; }
-    public DateTimeOffset BirthDay { get; set; }
+    public DateTime BirthDay { get; set; }
 }
 
 public class NamedModel : BaseModel
@@ -33,8 +33,8 @@ public interface IDeletable
 
 public interface IAuditable
 {
-    public Guid CreateById { get; set; }
-    public DateTimeOffset CreatedDate { get; set; }
-    public Guid ModifiedById { get; set; }
-    public DateTimeOffset ModifiedDate { get; set; }
+    public Guid? CreateById { get; set; }
+    public DateTimeOffset? CreatedDate { get; set; }
+    public Guid? ModifiedById { get; set; }
+    public DateTimeOffset? ModifiedDate { get; set; }
 }

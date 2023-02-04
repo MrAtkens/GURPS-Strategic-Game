@@ -1,0 +1,10 @@
+diff a/docker-compose.yml b/docker-compose.yml	(rejected hunks)
+@@ -19,7 +19,7 @@
+       Camunda__AuthApiUrl: "http://10.202.19.131:18080/"
+       Alfresco__Url: "http://alfproxy:8888/alfresco/api/-default-/public/cmis/versions/1.0/atom"
+       Alfresco__Login: "admin"
+-      Alfresco__Password: "admin"
++      Alfresco__Password: "alfmin"
+       Alfresco__RootFolder: "/GBIM"
+       Alfresco__TempFolder: "/TEMP"
+     ports:

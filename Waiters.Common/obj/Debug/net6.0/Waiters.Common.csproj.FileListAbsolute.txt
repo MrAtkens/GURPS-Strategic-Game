@@ -1,0 +1,12 @@
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\bin\Debug\net6.0\Waiters.Common.deps.json
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\bin\Debug\net6.0\Waiters.Common.dll
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\bin\Debug\net6.0\Waiters.Common.pdb
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\obj\Debug\net6.0\Waiters.Common.csproj.AssemblyReference.cache
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\obj\Debug\net6.0\Waiters.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\obj\Debug\net6.0\Waiters.Common.AssemblyInfoInputs.cache
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\obj\Debug\net6.0\Waiters.Common.AssemblyInfo.cs
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\obj\Debug\net6.0\Waiters.Common.csproj.CoreCompileInputs.cache
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\obj\Debug\net6.0\Waiters.Common.dll
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\obj\Debug\net6.0\refint\Waiters.Common.dll
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\obj\Debug\net6.0\Waiters.Common.pdb
+C:\Users\rkali\source\repos\DefaultTemplate-Strategic\Waiters.Common\obj\Debug\net6.0\ref\Waiters.Common.dll

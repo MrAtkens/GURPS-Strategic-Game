@@ -15,12 +15,13 @@ using DefaultTemplate.Domain.Services.Permissions;
 using DefaultTemplate.Domain.Services.Roles;
 using DefaultTemplate.Domain.Services.Users;
 using DefaultTemplate.Domain.Services.Waiters;
+using Microsoft.Extensions.Configuration;
 
 namespace DefaultTemplate.DI
 {
     public static class DIExtensions
     {
-        public static IServiceCollection AddDefaultServices(this IServiceCollection services)
+        public static IServiceCollection AddCommonServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddAutoMapper(typeof(AddressDetailsMapping).Assembly);
 
@@ -31,8 +32,10 @@ namespace DefaultTemplate.DI
 
             #region Enums
 
-            services.AddScoped<IEnumRepository<EPermission>, PermissionRepository>();
-            services.AddScoped<IEnumService<EPermission>, EnumService<EPermission>>();
+
+            services.AddScoped<IPermissionRepository, PermissionRepository>();
+            services.AddScoped<IPermissionService, PermissionService>();
+
             #endregion
 
             #region Entities
@@ -49,9 +52,6 @@ namespace DefaultTemplate.DI
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IRoleService, RoleService>();
 
-            services.AddScoped<IPermissionRepository, PermissionRepository>();
-            services.AddScoped<IPermissionService, PermissionService>();
-            
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
 
