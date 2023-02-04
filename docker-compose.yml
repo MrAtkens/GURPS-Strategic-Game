@@ -18,20 +18,20 @@ services:
     networks:
       - dockerapi-dev
 
-  sql:
-    image: postgres:latest
-    container_name: sql
-    ports:
-      - "5433:5432"
-    restart: always
-    volumes:
-      - waiter_db_volume:/var/lib/postrgesql/data
-    environment:
-      POSTGRES_USER: "waiter"
-      POSTGRES_PASSWORD: "MJFsdgfs%3423"
-      POSTGRES_DB: "WaiterDb"
-    networks:
-      - dockerapi-dev
+#  sql:
+#    image: postgres:latest
+#    container_name: sql
+#    ports:
+#      - "5433:5432"
+#    restart: always
+#    volumes:
+#      - waiter_db_volume:/var/lib/postrgesql/data
+#    environment:
+#      POSTGRES_USER: "waiter"
+#      POSTGRES_PASSWORD: "MJFsdgfs%3423"
+#      POSTGRES_DB: "WaiterDb"
+#    networks:
+#      - dockerapi-dev
 
 volumes:
   waiter_db_volume:
