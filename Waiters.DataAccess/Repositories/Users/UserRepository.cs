@@ -20,7 +20,7 @@ public class UserRepository : BaseRepository<User, UserEntity, UserQuery>, IUser
     }
     protected override void Update(UserEntity entity, User model)
     {
-        entity.RoleId = model.RoleId;
+        entity.RoleId = (Guid)model.RoleId;
         entity.LoginMail = model.LoginMail;
         entity.Password =  BCrypt.Net.BCrypt.HashPassword(model.Password);
     }
