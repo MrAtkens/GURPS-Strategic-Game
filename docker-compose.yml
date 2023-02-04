@@ -12,7 +12,7 @@ services:
       context: .
       dockerfile: Waiters.Api/Dockerfile
     environment:
-      ConnectionStrings__DefaultConnection: "host=sql;port=5432;database=WaiterDb;username=waiter;password=MJFsdgfs%3423"
+      ConnectionStrings__DefaultConnection: "host=62.217.183.22;port=5432;database=postgres;username=postgres;password=Nuke1042"
     ports:
       - "5101:80"
     networks:
